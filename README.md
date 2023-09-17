@@ -1,4 +1,4 @@
-# portfolio
+# Portfolio
 
 # Dynamic Element Animation with JavaScript
 
