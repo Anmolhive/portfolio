@@ -160,4 +160,9 @@ svg * {
   .heading {
     top: 80%;
   } 
+
+  .mobileEffect.heading {
+    top: 35% !important;
+    opacity: .7 !important;
+  }
 }

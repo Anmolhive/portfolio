@@ -147,16 +147,14 @@ document.addEventListener("touchmove", function (event) {
     if (scroll > 50) {
       svgContainer.style.backdropFilter = `blur(10px)`;
       flyesContainer.setAttribute("style", `background:rgba(0,0,0,0);`);
-      heading.setAttribute(`style`, `top: 35%;`);
-      heading.style.opacity = 0.7;
+      heading.classList.add('mobileEffect');
       subHeading.setAttribute(`style`, `top: 60%;`);
       connectContainer.setAttribute("style", `top: 80%;`);
       console.log("Downward Scroll:", scrolledPixels, "pixels");
     } else if(scroll < 50) {
       svgContainer.style.backdropFilter = `blur(0px)`;
       flyesContainer.setAttribute("style", `background:rgba(0,0,0,.8);`);
-      heading.setAttribute(`style`, `top: 80%;`);
-      heading.style.opacity = 1;
+      heading.classList.remove('mobileEffect');
       subHeading.setAttribute(`style`, `top: 120%;`);
       connectContainer.setAttribute("style", `top: 140%;`);
     }
