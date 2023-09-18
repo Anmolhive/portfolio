@@ -154,7 +154,7 @@ svg * {
   }
 
   .heading, .sub-heading, .connect-container {
-    transition: all 100ms linear !important;
+    transition: all 100ms ease !important;
   }
   
   .heading {
