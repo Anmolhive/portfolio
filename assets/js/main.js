@@ -1,8 +1,9 @@
 window.onload = () => {
   setTimeout(()=>{
     document.querySelector('.gallery-wrap').scrollIntoView({behavior: "smooth"});
-  }, '1000');
+  }, '5000');
 }
+
 
 const randemNumber = () => {
   return Math.random() * (100 - 0) + 0;
