@@ -16,17 +16,26 @@ const connectContainer = document.getElementById("connectContainer");
 
 const heading = document.getElementById("heading");
 const subHeading = document.getElementById("subHeading");
-let backgroundAlpha;
 let scroll = 0;
-let headingTop = 90;
-let subHeadingTop = 120;
-let connectContainerTop = 140;
+
+
 window.addEventListener("wheel", function (event) {
-  var scrolledPixels = event.deltaY;
+  let scrolledPixels = event.deltaY;
   let temp = scroll;
   scroll = scrolledPixels + scroll;
   if (scroll >= 0 && scroll < 500) {
-    coralRed.setAttribute(`transform`, `translate(${scroll / 3},${scroll})`);
+    scrollEffect(scroll);
+  } else {
+    scroll = temp;
+  }
+});
+
+let backgroundAlpha;
+let headingTop = 90;
+let subHeadingTop = 120;
+let connectContainerTop = 140;
+const scrollEffect = (scroll) => {
+  coralRed.setAttribute(`transform`, `translate(${scroll / 3},${scroll})`);
     turquoise.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
     royalBlue.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
     fuchsia.setAttribute(`transform`, `translate(-${scroll / 0.5},${scroll})`);
@@ -62,10 +71,7 @@ window.addEventListener("wheel", function (event) {
     subHeading.setAttribute(`style`, `top: ${subHeadingTop}%;`);
     connectContainerTop = headingTop + headingTop / 1.2 + 20;
     connectContainer.setAttribute("style", `top: ${connectContainerTop}%;`);
-  } else {
-    scroll = temp;
-  }
-});
+}
 
 const randemNumber = () => {
   return Math.random() * (100 - 0) + 0;
@@ -126,4 +132,31 @@ const intervelId10 = setInterval(
   1000,
   document.getElementById("flye10")
 );
+
+document.addEventListener('touchstart', function (event) {
+  touchStartY = event.touches[0].clientY;
+});
+
+document.addEventListener('touchmove', function (event) {
+  const touchCurrentY = event.touches[0].clientY;
+  const scrolledPixels = touchStartY - touchCurrentY;
+
+  let temp = scroll;
+  scroll += scrolledPixels;
+  if (scroll >= 0 && scroll < 500) {
+    scrollEffect(scroll);
+  } else {
+    scroll = temp;
+  }
+
+  // Use 'scroll' for your desired logic or logging
+  console.log('Vertical Scroll Distance:', scroll, 'pixels');
+
+  // Reset the touch start position for the next move event
+  touchStartY = touchCurrentY;
+});
+
+document.addEventListener('touchend', function () {
+  // Handle touch end if needed
+});
 

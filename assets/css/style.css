@@ -141,3 +141,10 @@ svg * {
     background: none;
   }
 }
+
+
+@media (max-width: 767px) {
+  .svg-container {
+    height: 100%;
+  }
+}
