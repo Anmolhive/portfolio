@@ -172,7 +172,7 @@ svg * {
   }
 
   .mobile-effect-div {
-    height: 70% !important;
+    height: calc(100% - 12rem) !important;
   }
 
   .content {

@@ -49,8 +49,6 @@ const leavesEffect = (scroll) => {
   darkBlue.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
   red.setAttribute(`transform`, `translate(${scroll},${scroll})`);
   blackLeaves.setAttribute(`transform`, `translate(${scroll},${scroll / 2})`);
-};
-const scrollEffect = (scroll) => {
   let blur = 0;
   if (scroll > 200) blur = scroll / 50;
   svgContainer.style.backdropFilter = `blur(${blur}px)`;
@@ -61,6 +59,8 @@ const scrollEffect = (scroll) => {
     "style",
     `background:rgba(0,0,0,${backgroundAlpha});`
   );
+};
+const scrollEffect = (scroll) => {
   if (100 - scroll / 5 > 20 && 100 - scroll / 5 < 90)
     headingTop = 100 - scroll / 5;
   heading.setAttribute(`style`, `top: ${headingTop}%;`);
@@ -136,30 +136,17 @@ document.addEventListener("touchstart", function (event) {
   touchStartY = event.touches[0].clientY;
 });
 
-// document.addEventListener("touchmove", function (event) {
-//   const touchCurrentY = event.touches[0].clientY;
-//   const scrolledPixels = touchStartY - touchCurrentY;
+document.addEventListener("touchmove", function (event) {
+  const touchCurrentY = event.touches[0].clientY;
+  const scrolledPixels = touchStartY - touchCurrentY;
 
-//   let temp = scroll;
-//   scroll += scrolledPixels;
-//   if (scroll >= 0 && scroll < 150) {
-//     leavesEffect(scroll);
-//     if (scroll > 50) {
-//       svgContainer.style.backdropFilter = `blur(10px)`;
-//       flyesContainer.setAttribute("style", `background:rgba(0,0,0,0);`);
-//       heading.classList.add('mobileEffect');
-//       subHeading.setAttribute(`style`, `top: 60%;`);
-//       connectContainer.setAttribute("style", `top: 80%;`);
-//     } else if(scroll < 50) {
-//       svgContainer.style.backdropFilter = `blur(0px)`;
-//       flyesContainer.setAttribute("style", `background:rgba(0,0,0,.8);`);
-//       heading.classList.remove('mobileEffect');
-//       subHeading.setAttribute(`style`, `top: 120%;`);
-//       connectContainer.setAttribute("style", `top: 140%;`);
-//     }
-//   } else {
-//     scroll = temp;
-//   }
+  let temp = scroll;
+  scroll += scrolledPixels;
+  if (scroll >= 0 && scroll < 500) {
+    leavesEffect(scroll);
+  } else {
+    scroll = temp;
+  }
   
-//   touchStartY = touchCurrentY;
-// });
+  touchStartY = touchCurrentY;
+});
