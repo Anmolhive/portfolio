@@ -148,7 +148,16 @@ svg * {
     height: 100%;
   }
 
+  .banner {
+    background-size: auto 100%;
+    background-position: 30%;
+  }
+
   .heading, .sub-heading, .connect-container {
-    transition: all 100ms linear !important;
+    transition: all 500ms linear !important;
+  }
+  
+  .heading {
+    top: 80%;
   } 
 }

@@ -144,28 +144,25 @@ document.addEventListener("touchmove", function (event) {
   scroll += scrolledPixels;
   if (scroll >= 0 && scroll < 150) {
     leavesEffect(scroll);
-    let blur = 0;
-    if (scroll > 200) blur = scroll / 100;
-    svgContainer.style.backdropFilter = `blur(${blur}px)`;
-    if (scroll / 450 > 0.1 && scroll / 450 < 0.9) {
-      backgroundAlpha = 1 - scroll / 450;
+    if (scroll > 50) {
+      svgContainer.style.backdropFilter = `blur(10px)`;
+      flyesContainer.setAttribute("style", `background:rgba(0,0,0,0);`);
+      heading.setAttribute(`style`, `top: 35%;`);
+      heading.style.opacity = 0.7;
+      subHeading.setAttribute(`style`, `top: 60%;`);
+      connectContainer.setAttribute("style", `top: 80%;`);
+      console.log("Downward Scroll:", scrolledPixels, "pixels");
+    } else if(scroll < 50) {
+      svgContainer.style.backdropFilter = `blur(0px)`;
+      flyesContainer.setAttribute("style", `background:rgba(0,0,0,.8);`);
+      heading.setAttribute(`style`, `top: 80%;`);
+      heading.style.opacity = 1;
+      subHeading.setAttribute(`style`, `top: 120%;`);
+      connectContainer.setAttribute("style", `top: 140%;`);
     }
-    flyesContainer.setAttribute(
-      "style",
-      `background:rgba(0,0,0,${backgroundAlpha});`
-    );
-    if (100 - scroll / 5 > 20 && 100 - scroll / 5 < 90)
-      headingTop = 100 - scroll / 2;
-    heading.setAttribute(`style`, `top: ${headingTop}%;`);
-    let headingOpacity = backgroundAlpha + 0.5;
-    heading.style.opacity = headingOpacity;
-    subHeadingTop = headingTop + headingTop / 1.2;
-    subHeading.setAttribute(`style`, `top: ${subHeadingTop}%;`);
-    connectContainerTop = headingTop + headingTop / 1.2 + 20;
-    connectContainer.setAttribute("style", `top: ${connectContainerTop}%;`);
   } else {
     scroll = temp;
   }
-  // Reset the touch start position for the next move event
+  
   touchStartY = touchCurrentY;
 });
