@@ -159,11 +159,11 @@ svg * {
 
   .heading, .sub-heading, .connect-container {
     transition: all 500ms ease !important;
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0) !important;
   }
   
   .heading {
-    top: 80%;
+    top: 80% !important;
   } 
 
   .mobileEffect.heading {
@@ -172,7 +172,7 @@ svg * {
   }
 
   .mobile-effect-div {
-    height: 70%;
+    height: 70% !important;
   }
 
   .content {
@@ -186,6 +186,6 @@ svg * {
   }
 
   .connect-container {
-    height: 30%;
+    height: 30% !important;
   }
 }
