@@ -150,7 +150,6 @@ document.addEventListener("touchmove", function (event) {
       heading.classList.add('mobileEffect');
       subHeading.setAttribute(`style`, `top: 60%;`);
       connectContainer.setAttribute("style", `top: 80%;`);
-      console.log("Downward Scroll:", scrolledPixels, "pixels");
     } else if(scroll < 50) {
       svgContainer.style.backdropFilter = `blur(0px)`;
       flyesContainer.setAttribute("style", `background:rgba(0,0,0,.8);`);

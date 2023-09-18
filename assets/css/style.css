@@ -142,7 +142,11 @@ svg * {
   }
 }
 
-
+@media (min-width: 678px) {
+  .heading, .sub-heading, .connect-container {
+    position: absolute;
+  }
+}
 @media (max-width: 767px) {
   .svg-container {
     height: 100%;
@@ -155,6 +159,7 @@ svg * {
 
   .heading, .sub-heading, .connect-container {
     transition: all 500ms ease !important;
+    transform: translateX(0) translateY(0);
   }
   
   .heading {
@@ -164,5 +169,23 @@ svg * {
   .mobileEffect.heading {
     top: 35% !important;
     opacity: .7 !important;
+  }
+
+  .mobile-effect-div {
+    height: 70%;
+  }
+
+  .content {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .connect-container {
+    height: 30%;
   }
 }
