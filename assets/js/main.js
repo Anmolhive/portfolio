@@ -1,5 +1,7 @@
 (()=>{
-  document.querySelector('.gallery-wrap').scrollIntoView();
+  setTimeout(()=>{
+    document.querySelector('.gallery-wrap').scrollIntoView({behavior: "smooth"});
+  }, '3000');
 })()
 const randemNumber = () => {
   return Math.random() * (100 - 0) + 0;
