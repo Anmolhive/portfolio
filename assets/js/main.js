@@ -3,7 +3,7 @@ const mobileEffectDiv = document.getElementById('mobileEffectDiv');
   let screenHeight = window.screen.height;
   let headingHeight = document.getElementById('heading').offsetHeight;
   let divHeight = screenHeight - headingHeight;
-  divHeight -= 50;
+  divHeight -= 100;
   mobileEffectDiv.setAttribute('style', `height: ${divHeight}px !important;`);
   // console.log(`Heading Height = ${mobileEffectDiv}px`);
 })();
@@ -155,6 +155,11 @@ document.addEventListener("touchmove", function (event) {
   scroll += scrolledPixels;
   if (scroll >= 0 && scroll < 500) {
     leavesEffect(scroll);
+    if(scroll > 100) {
+      heading.childNodes[1].childNodes[1].classList.remove('swip-up');
+    } else if(scroll < 100 ){
+      heading.childNodes[1].childNodes[1].classList.add('swip-up');
+    }
   } else {
     scroll = temp;
   }
