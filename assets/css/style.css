@@ -147,4 +147,8 @@ svg * {
   .svg-container {
     height: 100%;
   }
+
+  .heading, .sub-heading, .connect-container {
+    transition: all 100ms linear !important;
+  } 
 }

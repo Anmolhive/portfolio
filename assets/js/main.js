@@ -166,14 +166,6 @@ document.addEventListener("touchmove", function (event) {
   } else {
     scroll = temp;
   }
-
-  // Use 'scroll' for your desired logic or logging
-  console.log("Vertical Scroll Distance:", scroll, "pixels");
-
   // Reset the touch start position for the next move event
   touchStartY = touchCurrentY;
-});
-
-document.addEventListener("touchend", function () {
-  // Handle touch end if needed
 });
