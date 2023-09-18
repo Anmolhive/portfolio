@@ -1,3 +1,6 @@
+(()=>{
+  document.querySelector('.gallery-wrap').scrollIntoView();
+})()
 const randemNumber = () => {
   return Math.random() * (100 - 0) + 0;
 };
