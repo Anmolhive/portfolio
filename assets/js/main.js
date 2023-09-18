@@ -2,7 +2,7 @@ const mobileEffectDiv = document.getElementById('mobileEffectDiv');
 (()=>{
   let screenHeight = window.screen.height;
   screenHeight = screenHeight / 16;
-  screenHeight = screenHeight - 11;
+  screenHeight = screenHeight - 15;
   mobileEffectDiv.setAttribute('style', `height: ${screenHeight}rem !important;`);
   console.log(`Screen Height = ${screenHeight}rem`);
 })();
