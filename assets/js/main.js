@@ -1,3 +1,13 @@
+const mobileEffectDiv = document.getElementById('mobileEffectDiv');
+(()=>{
+  let screenHeight = window.screen.height;
+  screenHeight = screenHeight / 16;
+  screenHeight = screenHeight - 11;
+  mobileEffectDiv.setAttribute('style', `height: ${screenHeight}rem !important;`);
+  console.log(`Screen Height = ${screenHeight}rem`);
+})();
+
+
 const coralRed = document.getElementById("coral-red");
 const turquoise = document.getElementById("turquoise");
 const royalBlue = document.getElementById("royal-blue");

@@ -63,6 +63,7 @@ svg * {
 .flyes {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.9);
+  transition: all 100ms linear;
 }
 
 .flye {
