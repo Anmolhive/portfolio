@@ -3,6 +3,7 @@ const mobileEffectDiv = document.getElementById('mobileEffectDiv');
   let screenHeight = window.screen.height;
   let headingHeight = document.getElementById('heading').offsetHeight;
   let divHeight = screenHeight - headingHeight;
+  divHeight -= 50;
   mobileEffectDiv.setAttribute('style', `height: ${divHeight}px !important;`);
   // console.log(`Heading Height = ${mobileEffectDiv}px`);
 })();

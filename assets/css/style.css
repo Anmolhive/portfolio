@@ -143,6 +143,28 @@ svg * {
   }
 }
 
+@keyframes swipUp {
+  from {
+    transform: translatey(0);
+  }
+
+  30% {
+    transform: translatey(0);
+  }
+
+  50% {
+    transform: translatey(-4rem);
+  }
+
+  70% {
+    transform: translatey(0);
+  }
+
+  to {
+    transform: translatey(0);
+  }
+}
+
 @media (min-width: 678px) {
   .heading, .sub-heading, .connect-container {
     position: absolute;
@@ -188,5 +210,10 @@ svg * {
 
   .connect-container {
     height: 30% !important;
+  }
+
+  .swip-up {
+    transform: translateY(0);
+    animation: swipUp 3s ease-in-out infinite forwards;
   }
 }
