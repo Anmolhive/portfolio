@@ -18,12 +18,12 @@ const heading = document.getElementById("heading");
 const subHeading = document.getElementById("subHeading");
 let scroll = 0;
 
-
 window.addEventListener("wheel", function (event) {
   let scrolledPixels = event.deltaY;
   let temp = scroll;
   scroll = scrolledPixels + scroll;
   if (scroll >= 0 && scroll < 500) {
+    leavesEffect(scroll);
     scrollEffect(scroll);
   } else {
     scroll = temp;
@@ -34,44 +34,43 @@ let backgroundAlpha;
 let headingTop = 90;
 let subHeadingTop = 120;
 let connectContainerTop = 140;
-const scrollEffect = (scroll) => {
+const leavesEffect = (scroll) => {
   coralRed.setAttribute(`transform`, `translate(${scroll / 3},${scroll})`);
-    turquoise.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
-    royalBlue.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
-    fuchsia.setAttribute(`transform`, `translate(-${scroll / 0.5},${scroll})`);
-    vividLimeGreen.setAttribute(
-      `transform`,
-      `translate(-${scroll / 0.5},${scroll / 3})`
-    );
-    forestGreen.setAttribute(`transform`, `translate(${scroll},${scroll / 2})`);
-    deepMegenta.setAttribute(
-      `transform`,
-      `translate(-${scroll / 2},${scroll})`
-    );
-    rust.setAttribute(`transform`, `translate(${scroll},${scroll})`);
-    darkBlue.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
-    red.setAttribute(`transform`, `translate(${scroll},${scroll})`);
-    blackLeaves.setAttribute(`transform`, `translate(${scroll},${scroll / 2})`);
-    let blur = 0;
-    if (scroll > 200) blur = scroll / 50;
-    svgContainer.style.backdropFilter = `blur(${blur}px)`;
-    if (scroll / 450 > 0.1 && scroll / 450 < 0.9) {
-      backgroundAlpha = 1 - scroll / 450;
-    }
-    flyesContainer.setAttribute(
-      "style",
-      `background:rgba(0,0,0,${backgroundAlpha});`
-    );
-    if (100 - scroll / 5 > 20 && 100 - scroll / 5 < 90)
-      headingTop = 100 - scroll / 5;
-    heading.setAttribute(`style`, `top: ${headingTop}%;`);
-    let headingOpacity = backgroundAlpha + 0.5;
-    heading.style.opacity = headingOpacity;
-    subHeadingTop = headingTop + headingTop / 1.2;
-    subHeading.setAttribute(`style`, `top: ${subHeadingTop}%;`);
-    connectContainerTop = headingTop + headingTop / 1.2 + 20;
-    connectContainer.setAttribute("style", `top: ${connectContainerTop}%;`);
-}
+  turquoise.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
+  royalBlue.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
+  fuchsia.setAttribute(`transform`, `translate(-${scroll / 0.5},${scroll})`);
+  vividLimeGreen.setAttribute(
+    `transform`,
+    `translate(-${scroll / 0.5},${scroll / 3})`
+  );
+  forestGreen.setAttribute(`transform`, `translate(${scroll},${scroll / 2})`);
+  deepMegenta.setAttribute(`transform`, `translate(-${scroll / 2},${scroll})`);
+  rust.setAttribute(`transform`, `translate(${scroll},${scroll})`);
+  darkBlue.setAttribute(`transform`, `translate(-${scroll},${scroll})`);
+  red.setAttribute(`transform`, `translate(${scroll},${scroll})`);
+  blackLeaves.setAttribute(`transform`, `translate(${scroll},${scroll / 2})`);
+};
+const scrollEffect = (scroll) => {
+  let blur = 0;
+  if (scroll > 200) blur = scroll / 50;
+  svgContainer.style.backdropFilter = `blur(${blur}px)`;
+  if (scroll / 450 > 0.1 && scroll / 450 < 0.9) {
+    backgroundAlpha = 1 - scroll / 450;
+  }
+  flyesContainer.setAttribute(
+    "style",
+    `background:rgba(0,0,0,${backgroundAlpha});`
+  );
+  if (100 - scroll / 5 > 20 && 100 - scroll / 5 < 90)
+    headingTop = 100 - scroll / 5;
+  heading.setAttribute(`style`, `top: ${headingTop}%;`);
+  let headingOpacity = backgroundAlpha + 0.5;
+  heading.style.opacity = headingOpacity;
+  subHeadingTop = headingTop + headingTop / 1.2;
+  subHeading.setAttribute(`style`, `top: ${subHeadingTop}%;`);
+  connectContainerTop = headingTop + headingTop / 1.2 + 20;
+  connectContainer.setAttribute("style", `top: ${connectContainerTop}%;`);
+};
 
 const randemNumber = () => {
   return Math.random() * (100 - 0) + 0;
@@ -133,30 +132,48 @@ const intervelId10 = setInterval(
   document.getElementById("flye10")
 );
 
-document.addEventListener('touchstart', function (event) {
+document.addEventListener("touchstart", function (event) {
   touchStartY = event.touches[0].clientY;
 });
 
-document.addEventListener('touchmove', function (event) {
+document.addEventListener("touchmove", function (event) {
   const touchCurrentY = event.touches[0].clientY;
   const scrolledPixels = touchStartY - touchCurrentY;
 
   let temp = scroll;
   scroll += scrolledPixels;
-  if (scroll >= 0 && scroll < 500) {
-    scrollEffect(scroll);
+  if (scroll >= 0 && scroll < 150) {
+    leavesEffect(scroll);
+    let blur = 0;
+    if (scroll > 200) blur = scroll / 100;
+    svgContainer.style.backdropFilter = `blur(${blur}px)`;
+    if (scroll / 450 > 0.1 && scroll / 450 < 0.9) {
+      backgroundAlpha = 1 - scroll / 450;
+    }
+    flyesContainer.setAttribute(
+      "style",
+      `background:rgba(0,0,0,${backgroundAlpha});`
+    );
+    if (100 - scroll / 5 > 20 && 100 - scroll / 5 < 90)
+      headingTop = 100 - scroll / 2;
+    heading.setAttribute(`style`, `top: ${headingTop}%;`);
+    let headingOpacity = backgroundAlpha + 0.5;
+    heading.style.opacity = headingOpacity;
+    subHeadingTop = headingTop + headingTop / 1.2;
+    subHeading.setAttribute(`style`, `top: ${subHeadingTop}%;`);
+    connectContainerTop = headingTop + headingTop / 1.2 + 20;
+    connectContainer.setAttribute("style", `top: ${connectContainerTop}%;`);
   } else {
     scroll = temp;
   }
 
   // Use 'scroll' for your desired logic or logging
-  console.log('Vertical Scroll Distance:', scroll, 'pixels');
+  console.log("Vertical Scroll Distance:", scroll, "pixels");
 
   // Reset the touch start position for the next move event
   touchStartY = touchCurrentY;
 });
 
-document.addEventListener('touchend', function () {
+document.addEventListener("touchend", function () {
   // Handle touch end if needed
 });
-
