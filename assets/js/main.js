@@ -36,6 +36,11 @@ window.addEventListener("wheel", function (event) {
   if (scroll >= 0 && scroll < 500) {
     leavesEffect(scroll);
     scrollEffect(scroll);
+    if(scroll > 100) {
+      heading.childNodes[1].childNodes[1].classList.remove('swip-up');
+    } else if (scroll < 100) {
+      heading.childNodes[1].childNodes[1].classList.add('swip-up');
+    }
   } else {
     scroll = temp;
   }

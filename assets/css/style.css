@@ -124,6 +124,11 @@ svg * {
     rgba(255, 255, 255, 0.4) 0px -3px 0px inset;
 }
 
+.swip-up {
+  transform: translateY(0);
+  animation: swipUp 3s ease-in-out infinite forwards;
+}
+
 @keyframes blipEffectYellow {
   from {
     box-shadow: none;
@@ -210,10 +215,5 @@ svg * {
 
   .connect-container {
     height: 30% !important;
-  }
-
-  .swip-up {
-    transform: translateY(0);
-    animation: swipUp 3s ease-in-out infinite forwards;
   }
 }
