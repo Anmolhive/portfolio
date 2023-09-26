@@ -20,7 +20,7 @@
         }
 
         .flyes {
-            background: rgba(0, 0, 0, .1) !important;
+            background: rgba(0, 0, 0, .1);
         }
 
         .svg-container {
@@ -69,6 +69,40 @@
 
         .caption * {
             margin: 0 !important;
+        }
+
+        .flyes {
+            animation: lightingEffect 10s linear infinite forwards;
+        }
+
+        @keyframes lightingEffect {
+            from {
+                background: rgba(0, 0, 0, .1);
+            }
+
+            49%, 67% {
+                background: rgba(0, 0, 0, .1);
+            }
+
+            50%, 68% {
+                background: rgba(255, 255, 255, .5);
+            }
+
+            52%, 69% {
+                background: rgba(0, 0, 0, .1);
+            }
+
+            53%, 70% {
+                background: rgba(255, 255, 255, .8);
+            }
+
+            56%, 71% {
+                background: rgba(0, 0, 0, .1);
+            }
+
+            to {
+                background: rgba(0, 0, 0, .1);
+            }
         }
     </style>
 </head>
@@ -2264,17 +2298,17 @@
             <div class="gallery-wrap">
                 <div class="gallery gallery--row" id="gallery-1">
                     <div class="gallery__item gallery__item--s" style="background-image:url(img/6.jpg)"></div>
-                    <div class="gallery__item gallery__item--m" style="background-image:url(img/3.jpg)"></div>
+                    <div class="gallery__item gallery__item--m" style="background-image:url(img/3.png)"></div>
                     <div class="gallery__item gallery__item--l" style="background-image:url(img/4.jpg)"></div>
                     <div class="gallery__item gallery__item--xl gallery__item--center"
-                        style="background-image:url(img/1.jpg)"></div>
-                    <div class="gallery__item gallery__item--l" style="background-image:url(img/5.jpg)"></div>
-                    <div class="gallery__item gallery__item--m" style="background-image:url(img/2.jpg)"></div>
+                        style="background-image:url(img/1.gif)"></div>
+                    <div class="gallery__item gallery__item--l" style="background-image:url(img/5.png)"></div>
+                    <div class="gallery__item gallery__item--m" style="background-image:url(img/2.png)"></div>
                     <div class="gallery__item gallery__item--s" style="background-image:url(img/6.jpg)"></div>
                     <div class="caption">
-                        Within this meticulously arranged AI-generated ensemble lies a tantalizing facade, captivating
+                        <!-- Within this meticulously arranged AI-generated ensemble lies a tantalizing facade, captivating
                         our gaze. Yet, as we search for the soul of human expression, we question whether algorithms can
-                        truly embody the essence of authentic art.
+                        truly embody the essence of authentic art. -->
                     </div>
                 </div>
             </div>
@@ -2302,7 +2336,7 @@
                         <div class="gallery__item-inner" style="background-image:url(img/9.jpg)"></div>
                     </div>
                     <div class="gallery__item gallery__item-cut">
-                        <div class="gallery__item-inner" style="background-image:url(img/12.jpg)"></div>
+                        <div class="gallery__item-inner" style="background-image:url(img/12.png)"></div>
                     </div>
                     <div class="gallery__item gallery__item-cut">
                         <div class="gallery__item-inner" style="background-image:url(img/14.jpg)"></div>
